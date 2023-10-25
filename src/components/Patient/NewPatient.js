@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import profilePic from "../assets/iitg_logo.jpg"
+import profilePic from "../../assets/iitg_logo.jpg"
 
 const NewPatient = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +30,7 @@ const NewPatient = () => {
   }
 
   const handleOnSubmit = (e) => {
-    
+
   }
 
 

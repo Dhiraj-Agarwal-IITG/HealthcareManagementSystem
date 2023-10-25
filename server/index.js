@@ -1,7 +1,16 @@
 // Importing necessary modules and packages
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const corsOptions = {
+	origin: '*',
+	credentials: true,            //access-control-allow-credentials:true
+	optionSuccessStatus: 200,
+}
+app.use(cors(corsOptions));
 const adminRoutes = require("./routes/admin");
+const patientRoutes = require("./routes/patient");
+const doctorRoutes = require("./routes/doctor");
 const database = require("./config/db");
 const dotenv = require("dotenv");
 
@@ -17,6 +26,8 @@ database.connect();
 app.use(express.json());
 
 app.use("/api/v1/auth/admin", adminRoutes);
+app.use("/api/v1/auth/patient", patientRoutes);
+app.use("/api/v1/auth/doctor", doctorRoutes);
 
 // Testing the server
 app.get("/", (req, res) => {

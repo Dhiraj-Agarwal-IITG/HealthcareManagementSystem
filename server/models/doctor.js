@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // Define the Profile schema
 const doctorSchema = new mongoose.Schema({
   doctorId: {
-    type: string,
+    type: String,
     require: true,
   },
   firstname: {
