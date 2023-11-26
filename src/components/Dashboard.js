@@ -6,7 +6,8 @@ import Chart from "./Dashboard/Chart";
 import AppointmentQueue from "./Dashboard/AppointmentQueue";
 import { BiSolidUser } from "react-icons/bi";
 import { FaUserMd, FaBed, FaNotesMedical } from "react-icons/fa";
-const Dashboard = () => {
+const Dashboard = (props) => {
+  const {user}=props;
   const [Data, setData] = useState([]);
   return (
     <div className="bg-white m-10 ">

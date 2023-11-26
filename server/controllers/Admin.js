@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const Admin = require("../models/Admin");
+const Admin = require("../models/admin");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
@@ -90,7 +90,7 @@ exports.login = async (req, res) => {
 
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign(
-        { email: user.email, id: user._id},
+        { firstname: user.firstname, lastname: user.lastname, email: user.email, id: user._id, role: "admin" },
         process.env.JWT_SECRET,
         {
           expiresIn: "24h",
@@ -178,7 +178,7 @@ exports.deleteAdminDetails = async (req, res) => {
         success: false,
         message: "Admin not found",
       })
-    } 
+    }
     await Admin.findByIdAndDelete(id);
     res.status(200).json({
       success: true,

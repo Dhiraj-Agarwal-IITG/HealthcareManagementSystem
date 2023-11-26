@@ -2,27 +2,9 @@ const mongoose = require("mongoose");
 
 // Define the Profile schema
 const appointmentSchema = new mongoose.Schema({
-  patientId: {
-    type: String,
-    required: true,
-  },
-  firstname: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  lastname: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  time: {
-    type: Date,
-    required: true,
-  },
   doctor: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    required: false,
     ref: "Doctor",
   },
   patient: {
@@ -30,7 +12,7 @@ const appointmentSchema = new mongoose.Schema({
     required: true,
     ref: "Patient",
   },
-  Reason: {
+  symptoms: {
     type: String,
     required: true,
   },
@@ -41,12 +23,22 @@ const appointmentSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ["Pending", "Approved", "Cancelled", "Closed"],
-    default: "Pending",
+    default: "Approved",
   },
-  password: {
+  slot: {
     type: String,
+    enum: ["slot8to10", "slot10to12", "slot12to2", "slot2to4", "slot4to6", "slot6to8"],
     required: true,
   },
+  dateOfAppointment: {
+    type: Date,
+    required: true,
+  },
+  department: {
+    type: String,
+    enum: ["Cardiology", "ENT", "General", "Gynaecology", "Haematology", "Neurology", "Oncology", "Opthalmology", "Orthopaedic", "Pediatrics", "Psychiatry", "Urology"],
+    require: true,
+  }
 },
   { timestamps: true }
 );

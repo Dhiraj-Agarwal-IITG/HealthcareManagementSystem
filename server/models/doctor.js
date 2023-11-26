@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 
 // Define the Profile schema
 const doctorSchema = new mongoose.Schema({
-  doctorId: {
-    type: String,
-    require: true,
-  },
   firstname: {
     type: String,
     trim: true,
@@ -23,7 +19,11 @@ const doctorSchema = new mongoose.Schema({
   address: {
     type: String,
   },
-
+  department: {
+    type: String,
+    enum: ["Cardiology", "ENT", "General", "Gynaecology", "Haematology", "Neurology", "Oncology", "Opthalmology", "Orthopaedic", "Pediatrics", "Psychiatry", "Urology"],
+    require: true,
+  },
   email: {
     type: String,
     require: true,
@@ -32,6 +32,12 @@ const doctorSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  leaveSchedule: [
+    {
+      startTime: { type: Number },
+      endTime: { type: Number }
+    }
+  ]
 },
   { timestamps: true }
 );

@@ -4,8 +4,8 @@ const { login, signup, getAdminDetails,updateAdmin, deleteAdminDetails } = requi
 
 router.post("/login", login);
 router.post("/signup", signup);
-router.post("/updateAdmin", updateAdmin);
-router.get("/fetchAdmin", getAdminDetails);
-router.delete("/deleteAdmin", deleteAdminDetails);
+router.post("/update", updateAdmin);
+router.get("/fetch", getAdminDetails);
+router.delete("/delete", deleteAdminDetails);
 
 module.exports = router;

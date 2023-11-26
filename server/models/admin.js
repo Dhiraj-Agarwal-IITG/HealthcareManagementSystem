@@ -24,6 +24,13 @@ const adminSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  appointments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "appointment",
+    }
+  ],
 },
   { timestamps: true }
 );

@@ -1,8 +1,9 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
+import PreviousAppointments from '../components/Patient/PreviousAppointments';
 
-const Invoices = () => {
+const AppointmentHistory = () => {
     return (
         <div>
             <Navbar />
@@ -11,11 +12,13 @@ const Invoices = () => {
                     <Sidebar />
                 </div>
                 <div className='w-4/5'>
-                    <div>Invoices</div>
+                    <div>
+                        <PreviousAppointments />
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Invoices
+export default AppointmentHistory

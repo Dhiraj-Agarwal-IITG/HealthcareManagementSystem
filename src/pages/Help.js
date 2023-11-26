@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
+import Faq from '../components/Faq';
 
 const Help = () => {
     return (
@@ -11,7 +12,7 @@ const Help = () => {
                     <Sidebar />
                 </div>
                 <div className='w-4/5'>
-                    <div>Help</div>
+                    <div><Faq/></div>
                 </div>
             </div>
         </div>

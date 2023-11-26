@@ -1,23 +1,27 @@
 const mongoose = require("mongoose");
 
-
 const patientSchema = new mongoose.Schema({
-  patientId: {
+  rollno: {
     type: String,
     require: true,
   },
-  firstname: {
+  firstName: {
     type: String,
     trim: true,
     require: true,
   },
-  lastname: {
+  lastName: {
     type: String,
     trim: true,
     require: true,
   },
   gender: {
     type: String,
+  },
+  bloodGroup: {
+    type: String,
+    enum: ["A+", "B+", "A-", "B-", "O+", "O-", "AB+", "AB-"],
+    require: true,
   },
   dateOfBirth: {
     type: Date,
